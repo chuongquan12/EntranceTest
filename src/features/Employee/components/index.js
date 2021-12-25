@@ -1,0 +1,8 @@
+export { default as AvatarTable } from './AvatarTable'
+export { default as BtnAddEmployee } from './BtnAddEmployee'
+export { default as Credentials } from './Credentials'
+export { default as Detail } from './Detail'
+export { default as Filter } from './Filter'
+export { default as Inspections } from './Inspections'
+export { default as ListEmployee } from './ListEmployee'
+export { default as Main } from './Main'

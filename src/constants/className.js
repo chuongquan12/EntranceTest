@@ -6,4 +6,9 @@ export const classNameComponents = {
     classNavbar: 'navbar',
 
     classFilter: 'filter',
+
+    classMainEmployee: 'main',
+    classDetailEmployee: 'detail',
+    classDetailCredentials: 'credentials',
+    classDetailInspections: 'inspections',
 }

@@ -81,3 +81,56 @@ export const textListEmployee = {
 export const textBtnAdd = {
     icon: <PlusOutlined />,
 }
+
+export const textMain = {
+    textImg: 'Employee Image',
+    textInspections: 'Inspections Completed',
+    textTotalInspections: 'Total Inspections',
+    textOpenIssues: 'Open Issues',
+    textLastLogin: 'Last Login',
+    textSites: 'Sites',
+
+    icon: <PlusOutlined />,
+}
+
+export const textDetail = {
+    titleHeader: 'Details',
+}
+
+export const textCredentials = {
+    titleHeader: 'Credentials',
+}
+
+export const textInspections = {
+    titleHeader: 'Employee Inspections',
+
+    textBtn1: 'Inspections',
+    textBtn2: 'Issues',
+
+    columns: [
+        {
+            title: '#',
+            dataIndex: 'id',
+            key: 'id',
+            width: 75,
+        },
+        {
+            title: 'Check List',
+            dataIndex: 'checkList',
+            key: 'checkList',
+            width: 150,
+        },
+        {
+            title: 'Date',
+            dataIndex: 'date',
+            key: 'date',
+            width: 150,
+        },
+        {
+            title: 'Duration',
+            dataIndex: 'duration',
+            key: 'duration',
+            width: 75,
+        },
+    ],
+}

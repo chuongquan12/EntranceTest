@@ -1,0 +1,41 @@
+@import '../../../../assets/style/colors';
+
+.inspections {
+    margin: 0 1rem;
+    padding: 1rem 2rem;
+
+    background-color: $color_cultured;
+    height: 75vh;
+
+    &__header {
+        margin-bottom: 1rem;
+        border-bottom: 1px solid $color_black_coffee;
+
+        &--text {
+            padding: 0.25rem 0;
+
+            font-size: 1.25rem;
+            font-weight: 700;
+
+            border-bottom: 1px solid $color_black_coffee;
+        }
+    }
+
+    &__listBtn {
+        margin: 1rem 2rem;
+        &--btn {
+            width: 9rem;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem;
+
+            text-align: center;
+            color: $color_white;
+            background-color: rgba($color_dark_salmon, 0.5);
+            border-radius: 10px;
+
+            &.active {
+                background-color: $color_dark_salmon;
+            }
+        }
+    }
+}

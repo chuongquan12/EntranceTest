@@ -6,10 +6,8 @@ import { useHistory } from 'react-router-dom'
 import departmentApi from '../../../../api/departmentApi'
 import { setListDepartment } from '../../../../app/departmentSlice'
 
-import NavBar from '../../../../components/NavBar'
-import BtnAddEmployee from '../../components/BtnAddEmployee'
-import Filter from '../../components/Filter'
-import ListEmployee from '../../components/ListEmployee'
+import { NavBar } from '../../../../components/index'
+import { BtnAddEmployee, Filter, ListEmployee } from '../../components/index'
 
 function ListPage(props) {
     const dispatch = useDispatch()
