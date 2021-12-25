@@ -1,0 +1,37 @@
+@import '../../assets/style/colors';
+
+.navbar {
+    padding: 0.5rem 2rem;
+    color: $color_white;
+    background-color: $color_dark_salmon;
+
+    &__breadcrumb {
+        &--title {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+
+            margin: 0 1rem;
+            font-weight: 700;
+        }
+    }
+
+    &__action {
+        &--icon {
+            margin: 0 0.25rem;
+            padding: 0.25rem 0.75rem;
+
+            font-size: 1.5rem;
+            border-radius: 50%;
+
+            transition: all 750ms;
+            cursor: pointer;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: $color_black_coffee;
+                transition: all 750ms;
+            }
+        }
+    }
+}

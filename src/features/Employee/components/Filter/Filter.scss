@@ -1,0 +1,38 @@
+@import '../../../../assets/style/colors';
+
+.filter {
+    height: 81.5vh;
+    padding: 2rem 1rem;
+
+    background-color: $color_cultured;
+
+    &__header {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    &__label > div > label {
+        font-size: 0.8rem;
+    }
+
+    &__input {
+        border-bottom: 1px solid $color_black_coffee;
+        border-radius: 0;
+
+        &:hover,
+        &:focus,
+        &:active {
+            border-bottom: 1px solid $color_black_coffee;
+            border-radius: 0;
+        }
+
+        &::placeholder {
+            font-size: 0.8rem;
+        }
+    }
+
+    &__select {
+        border-bottom: 1px solid $color_black_coffee;
+        border-radius: 0;
+    }
+}

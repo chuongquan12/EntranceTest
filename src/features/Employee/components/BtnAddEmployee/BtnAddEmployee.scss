@@ -1,0 +1,16 @@
+@import '../../../../assets/style/colors';
+
+.btn-add {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 5rem;
+
+    padding: 0.55rem 0.9rem;
+    font-size: 1.25rem;
+    color: $color_white;
+    background-color: $color_dark_salmon;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+}

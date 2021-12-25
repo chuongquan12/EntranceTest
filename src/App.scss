@@ -21,7 +21,8 @@ a {
     }
 }
 
-input {
+input,
+button {
     border: none;
     background: none;
 
@@ -36,6 +37,6 @@ input {
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: $color_cultured;
+    background-color: $color_dark_salmon;
     border-radius: 5px;
 }

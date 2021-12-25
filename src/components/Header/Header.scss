@@ -1,0 +1,39 @@
+@import '../../assets/style/colors';
+
+.header {
+    padding: 0.5rem 1rem;
+    background-color: $color_cultured;
+
+    &__menu {
+        cursor: pointer;
+        &--icon,
+        &--text {
+            margin: 0.25rem;
+        }
+    }
+
+    &__select {
+        cursor: pointer;
+        &--text {
+            margin: 0 1rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+    }
+
+    &__user {
+        cursor: pointer;
+
+        &--img {
+            height: 2.5rem;
+            width: 2.5rem;
+
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        &--name {
+            margin: 0 1rem;
+        }
+    }
+}

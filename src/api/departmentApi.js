@@ -1,7 +1,7 @@
 import axiosClient from './axiosClient'
 
 const departmentApi = {
-    getAllDepartmentApi: () => {
+    getAllDepartment: () => {
         const url = `/department`
         return axiosClient.get(url)
     },
