@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 
 import moment from 'moment'
 
+import { Col, Row, Table } from 'antd'
 import './Inspections.scss'
+
 import { classNameComponents } from '../../../../constants/className'
-import { Col, Form, Input, Row, Table } from 'antd'
 import { textInspections } from '../../../../constants/content'
 
 Inspections.propTypes = {
@@ -45,7 +46,7 @@ function Inspections({ data }) {
                                     columns={text.columns}
                                     pagination={false}
                                     dataSource={dataSource}
-                                    scroll={{ y: 475 }}
+                                    scroll={{ y: 300 }}
                                 />
                             )}
                         </Row>

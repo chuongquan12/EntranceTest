@@ -7,6 +7,8 @@ import { Col, Row } from 'antd'
 import { classNameComponents } from '../../../../constants/className'
 import { textMain } from '../../../../constants/content'
 
+import Chart from '../Chart'
+
 Main.propTypes = {
     data: PropTypes.object,
 }
@@ -30,7 +32,7 @@ function Main({ data }) {
                             </span>
                         </Row>
                         <Row>
-                            <Col xs={8}>
+                            <Col xs={6}>
                                 <span className={`${className}__text`}>{text.textImg}</span>
                                 <img
                                     className={`${className}__img`}
@@ -39,9 +41,9 @@ function Main({ data }) {
                                 />
                                 <span className={`${className}__icon`}>{text.icon}</span>
                             </Col>
-                            <Col xs={16}>
+                            <Col xs={18}>
                                 <span className={`${className}__text`}>{text.textInspections}</span>
-                                {/* <span className={`${className}__text`}>{text.textInspections}</span> */}
+                                <Chart data={data.inspections} />
                             </Col>
                         </Row>
                         <Row align="middle">

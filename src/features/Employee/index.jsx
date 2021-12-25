@@ -1,10 +1,7 @@
 import { Col, Row } from 'antd'
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import { Redirect, Route, Switch } from 'react-router-dom'
-import employeeApi from '../../api/employeeApi'
-import { setListEmployee } from '../../app/employeeSlice'
 import { Header } from '../../components/index'
 
 import DetailPage from './pages/DetailPage'
@@ -12,20 +9,6 @@ import ListPage from './pages/ListPage'
 
 function Employee(props) {
     const match = useRouteMatch()
-    const dispatch = useDispatch()
-
-    const getAllEmployee = async () => {
-        try {
-            const response = await employeeApi.getAllEmployee()
-            dispatch(setListEmployee(response))
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    useEffect(() => {
-        getAllEmployee()
-    }, [match.url])
 
     return (
         <Row>

@@ -5,6 +5,8 @@
     padding: 1rem 2rem;
 
     background-color: $color_cultured;
+
+    border-radius: 15px;
     height: 62.5vh;
 
     &__header {
@@ -27,7 +29,7 @@
     }
 
     &__img {
-        margin: 2rem 0;
+        margin: 2.5rem 0;
         padding: 0.4rem;
 
         width: 8rem;
@@ -41,12 +43,14 @@
 
     &__icon {
         position: absolute;
-        bottom: 1.5rem;
-        left: 0;
+        bottom: 5rem;
+        left: 0.25rem;
 
         padding: 0.5rem 0.75rem;
         background-color: $color_dark_salmon;
         border-radius: 50%;
+
+        box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.25);
 
         cursor: pointer;
     }

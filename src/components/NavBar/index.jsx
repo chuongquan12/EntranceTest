@@ -1,4 +1,6 @@
 import React from 'react'
+import { CSVLink } from 'react-csv'
+
 import PropTypes from 'prop-types'
 
 import './NavBar.scss'
@@ -10,25 +12,33 @@ NavBar.propTypes = {
     onClickExtra: PropTypes.func,
     onClickFilter: PropTypes.func,
     breadcrumb: PropTypes.string,
+    selectedRow: PropTypes.array,
 }
 
 NavBar.defaultProps = {
     onClickExtra: null,
     onClickFilter: null,
     breadcrumb: '',
+    selectedRow: [],
 }
 
 const className = classNameComponents.classNavbar
 const text = textNavbar
 
-function NavBar({ onClickExtra, onClickFilter, breadcrumb }) {
+function NavBar({ onClickExtra, onClickFilter, breadcrumb, selectedRow }) {
     const menu = (
         <Menu>
             {text.listExtra.length > 0 &&
                 text.listExtra.map((value, index) => {
                     return (
                         <Menu.Item key={index}>
-                            <span onClick={() => onClickExtra(value.value)}>{value.text}</span>
+                            {value.value === 'download' && selectedRow.length > 0 ? (
+                                <CSVLink data={selectedRow} target="_blank">
+                                    {value.text}
+                                </CSVLink>
+                            ) : (
+                                <span onClick={() => onClickExtra(value.value)}>{value.text}</span>
+                            )}
                         </Menu.Item>
                     )
                 })}

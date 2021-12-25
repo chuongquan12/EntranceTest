@@ -9,7 +9,7 @@ const employee = createSlice({
     name: 'employee',
     initialState: initialState,
     reducers: {
-        setListEmployee: (state, action) => {
+        setListEmployees: (state, action) => {
             state = { ...state, list: action.payload }
             return state
         },
@@ -22,5 +22,5 @@ const employee = createSlice({
 })
 
 const { reducer, actions } = employee
-export const { setListEmployee, setDetailEmployee } = actions
+export const { setListEmployees, setDetailEmployee } = actions
 export default reducer

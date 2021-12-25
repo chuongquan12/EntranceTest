@@ -21,7 +21,6 @@ function App() {
                     <Switch>
                         <Redirect exact from="/" to="/employee" />
                         <Route path="/employee" component={Employee} />
-                        {/* <Route component={NotFound} /> */}
                     </Switch>
                 </BrowserRouter>
             </Suspense>

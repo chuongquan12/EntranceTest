@@ -3,8 +3,10 @@
 .inspections {
     margin: 0 1rem;
     padding: 1rem 2rem;
+    margin-bottom: 1rem;
 
     background-color: $color_cultured;
+    border-radius: 15px;
     height: 75vh;
 
     &__header {
@@ -31,9 +33,11 @@
             text-align: center;
             color: $color_white;
             background-color: rgba($color_dark_salmon, 0.5);
+
             border-radius: 10px;
 
             &.active {
+                box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.25);
                 background-color: $color_dark_salmon;
             }
         }

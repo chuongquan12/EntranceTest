@@ -1,5 +1,6 @@
 export { default as AvatarTable } from './AvatarTable'
 export { default as BtnAddEmployee } from './BtnAddEmployee'
+export { default as Chart } from './Chart'
 export { default as Credentials } from './Credentials'
 export { default as Detail } from './Detail'
 export { default as Filter } from './Filter'

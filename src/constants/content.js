@@ -134,3 +134,12 @@ export const textInspections = {
         },
     ],
 }
+
+export const textModalConfirm = {
+    titleHeader: 'Delete Employee',
+
+    textDesc: 'Do you want to delete the employees?',
+
+    textBtnCancel: 'Cancel',
+    textBtnConfirm: 'Confirm',
+}

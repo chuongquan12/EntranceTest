@@ -1,0 +1,66 @@
+@import '../../../../assets/style/colors';
+
+.modal-confirm {
+    &__header {
+        &--title {
+            display: flex;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 0.25rem 1rem;
+        }
+
+        &--desc {
+            margin: 0 0.75rem 1rem 0.75rem;
+        }
+    }
+
+    &__body {
+        margin: 1rem 0;
+        max-height: 40vh;
+        overflow: auto;
+
+        &--item {
+            margin: 0.5rem 0.5rem;
+        }
+
+        &--img {
+            text-align: center;
+            & > img {
+                width: 5rem;
+                height: 5rem;
+
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+
+        &--name {
+            font-weight: 700;
+        }
+    }
+    &__footer {
+        margin-top: 1rem;
+
+        &--btn {
+            margin: 0 0.25rem;
+
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            background-color: $color_cultured;
+
+            transition: all 750ms;
+            cursor: pointer;
+
+            &:hover,
+            &:active,
+            &:focus {
+                color: $color_white;
+                background-color: $color_dark_salmon;
+
+                transition: all 750ms;
+                cursor: pointer;
+            }
+        }
+    }
+}

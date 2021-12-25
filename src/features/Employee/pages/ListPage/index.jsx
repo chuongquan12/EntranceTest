@@ -1,13 +1,18 @@
-import { Col, Row } from 'antd'
+import { Col, notification, Row } from 'antd'
+
 import React, { useEffect, useState } from 'react'
+
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import departmentApi from '../../../../api/departmentApi'
+import employeeApi from '../../../../api/employeeApi'
 import { setListDepartment } from '../../../../app/departmentSlice'
+import { setListEmployees } from '../../../../app/employeeSlice'
 
 import { NavBar } from '../../../../components/index'
 import { BtnAddEmployee, Filter, ListEmployee } from '../../components/index'
+import ModalConfirm from '../../components/Modal'
 
 function ListPage(props) {
     const dispatch = useDispatch()
@@ -18,18 +23,33 @@ function ListPage(props) {
 
     const [dataSource, setDataSource] = useState(employee.list)
     const [listEmployee, setListEmployee] = useState(employee.list)
+    const [selectedRow, setSelectedRow] = useState([])
     const [visibleFilter, setVisibleFilter] = useState(false)
+    const [visibleModal, setVisibleModal] = useState(false)
     const [isSelectRow, setIsSelectRow] = useState(false)
 
-    const handleExtra = (value) => {
-        switch (value) {
-            case 'select':
-                setIsSelectRow(!isSelectRow)
-                break
-
-            default:
-                break
+    const getAllEmployee = async () => {
+        try {
+            const response = await employeeApi.getAllEmployee()
+            setDataSource(formatDataSource(response))
+            setListEmployee(formatDataSource(response))
+            dispatch(setListEmployees(response))
+        } catch (error) {
+            console.log(error)
         }
+    }
+
+    const deleteEmployee = async (listDelete) => {
+        if (listDelete.length <= 0) return false
+
+        listDelete.map(async (value) => {
+            try {
+                const response = await employeeApi.deleteEmployee(value.id)
+                response && getAllEmployee()
+            } catch (error) {
+                console.log(error)
+            }
+        })
     }
 
     const getAllDepartment = async () => {
@@ -43,6 +63,31 @@ function ListPage(props) {
         }
     }
 
+    const handleExtra = (value) => {
+        switch (value) {
+            case 'select':
+                setIsSelectRow(!isSelectRow)
+                break
+            case 'download':
+                setIsSelectRow(false)
+                break
+            case 'delete':
+                selectedRow.length > 0 ? setVisibleModal(true) : openNotification()
+                break
+            default:
+                break
+        }
+    }
+
+    const handleModalConfirm = () => {
+        setVisibleModal(false)
+        setIsSelectRow(false)
+
+        deleteEmployee(selectedRow)
+        setSelectedRow([])
+        window.scrollTo(0, 0)
+    }
+
     const changeFilter = (value) => {
         let response = [...listEmployee]
         switch (value.type) {
@@ -54,7 +99,7 @@ function ListPage(props) {
             default:
                 break
         }
-
+        setIsSelectRow(false)
         setDataSource(response)
     }
 
@@ -64,9 +109,8 @@ function ListPage(props) {
 
     useEffect(() => {
         getAllDepartment()
-        setDataSource(formatDataSource(employee.list))
-        setListEmployee(formatDataSource(employee.list))
-    }, [employee])
+        getAllEmployee()
+    }, [selectedRow])
 
     return (
         <Row>
@@ -75,6 +119,7 @@ function ListPage(props) {
                     breadcrumb={`${dataSource.length} Employees`}
                     onClickExtra={handleExtra}
                     onClickFilter={() => setVisibleFilter(!visibleFilter)}
+                    selectedRow={selectedRow}
                 />
                 <Row>
                     {visibleFilter && (
@@ -88,10 +133,19 @@ function ListPage(props) {
                             dataSource={dataSource}
                             isSelectRow={isSelectRow}
                             onFocusRow={onFocusRow}
+                            selectedRow={(value) => setSelectedRow(value)}
                         />
                     </Col>
                 </Row>
                 <BtnAddEmployee />
+
+                <ModalConfirm
+                    visible={visibleModal}
+                    onClose={() => setVisibleModal(!visibleModal)}
+                    width={500}
+                    data={selectedRow}
+                    handleModal={handleModalConfirm}
+                />
             </Col>
         </Row>
     )
@@ -116,6 +170,13 @@ const formatDataSource = (dataSource) => {
         })
 
     return response
+}
+
+const openNotification = () => {
+    notification['warning']({
+        message: 'Something wrong !!!',
+        description: 'Please select the employee to delete',
+    })
 }
 
 export default ListPage

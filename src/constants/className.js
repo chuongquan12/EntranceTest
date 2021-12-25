@@ -1,6 +1,7 @@
 export const classNameComponents = {
     avatar: 'avatar',
     btnAdd: 'btn-add',
+    modalConfirm: 'modal-confirm',
 
     classHeader: 'header',
     classNavbar: 'navbar',

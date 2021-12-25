@@ -9,21 +9,20 @@ const { Column } = Table
 
 ListEmployee.propTypes = {
     isSelectRow: PropTypes.bool,
+    selectedRow: PropTypes.func,
 }
 
 ListEmployee.defaultProps = {
     isSelectRow: false,
+    selectedRow: null,
 }
 
 const columns = textListEmployee.columns
 
-const rowSelection = {
-    onChange: (selectedRowKeys, selectedRows) => {
-        console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows)
-    },
-}
-
-function ListEmployee({ isSelectRow, dataSource, onFocusRow }) {
+function ListEmployee({ isSelectRow, dataSource, onFocusRow, selectedRow }) {
+    const rowSelection = {
+        onChange: (selectedRowKeys, selectedRows) => selectedRow(selectedRows),
+    }
     return (
         <Row>
             <Col xs={24}>

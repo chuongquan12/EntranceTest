@@ -21,8 +21,6 @@ function DetailPage(props) {
     const getByIdEmployee = async (id) => {
         try {
             const response = await employeeApi.getByIdEmployee(id)
-            console.log(response)
-
             dispatch(setDetailEmployee(response))
         } catch (error) {
             console.log(error)
