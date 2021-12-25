@@ -1,0 +1,41 @@
+@import '~antd/dist/antd.css';
+@import './assets/style/colors';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $color_white;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+
+    &:hover {
+        color: unset;
+    }
+}
+
+input {
+    border: none;
+    background: none;
+
+    &:focus {
+        border: none;
+        outline: none;
+    }
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: $color_cultured;
+    border-radius: 5px;
+}
